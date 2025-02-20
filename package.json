@@ -1,0 +1,75 @@
+{
+  "name": "@telegram-hooker/core",
+  "version": "1.0.0",
+  "description": "Core module of telegram hooker",
+  "license": "BSL-1.1",
+  "funding": "https://github.com/sponsors/arg0WAK",
+  "author": {
+    "name": "Barış Albayrak",
+    "email": "baris.albayrak@proton.me",
+    "portfolio": "https://barisalbayrak.net",
+    "arg0": "https://arg0.dev",
+    "requestx": "https://requestx.dev",
+    "github": "arg0WAK"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arg0WAK/telegram-hooker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arg0WAK/telegram-hooker/issues"
+  },
+  "homepage": "https://github.com/arg0WAK/telegram-hooker#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -p tsconfig.json",
+    "dev-node-http": "cd examples/node-http && npm run dev",
+    "dev-express-http": "cd examples/express-http && npm run dev",
+    "dev-fastify-http": "cd examples/fastify-http && npm run dev",
+    "lint": "npx eslint **/*.ts",
+    "format": "prettier --write ."
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "keywords": [
+    "express",
+    "fastify",
+    "koa",
+    "hapi",
+    "nestjs",
+    "telegram",
+    "webhook",
+    "worker",
+    "api",
+    "bot"
+  ],
+  "dependencies": {
+    "form-data": "^4.0.1",
+    "ngrok": "^5.0.0-beta.2",
+    "node-fetch": "^3.3.2",
+    "pug": "^3.0.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@types/node": "^22.10.5",
+    "@types/pug": "^2.0.10",
+    "eslint": "^9.17.0",
+    "globals": "^15.14.0",
+    "prettier": "^3.4.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.19.1",
+    "vitest": "^3.0.6"
+  }
+}

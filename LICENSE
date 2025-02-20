@@ -1,0 +1,42 @@
+License:
+BSL 1.1
+
+Licensor:
+arg0WAK
+
+Licensed Work:
+telegram-hooker
+
+    Releases of Telegram Hooker covered by this License contain a copy of this License as their license file, and are made available by the Licensor at
+    barisalbayrak.net, arg0.dev, requestx.dev, github.com/arg0WAK/telegram-hooker/ and by way of other distribution channels.
+    The Licensed Work is © 2024 arg0WAK
+
+Additional Use Grant:
+The Licensor grants you (the licensee) additional rights to the Licensed
+Work, where by you are entitled to run the Licensed Work in production
+use, at no cost, subject to all of the following conditions:
+(a) the additional right to use granted herein applies to the exclusion
+of use of the Licensed Work for a Stream Data Processing Service, as well as to the exclusion of use of any modified or derivative Licensed Work, in particular:
+
+    - You may not alter, remove, or obscure any licensing, copyright, or other
+    notices of the licensor in the software;
+
+Change Date:
+Change date is four years from the date of code merge into the main
+release branch of Telegram Hooker in the GitHub repo (and in no case earlier than December 13, 2029). Please see GitHub commit history for exact dates
+
+Change License:
+Apache License, Version 2.0, as published by the Apache Foundation.
+
+The Licensor hereby grants you the right to copy, modify, create derivative
+works, redistribute, and make non-production use of the Licensed Work. the
+Licensor may make an Additional Use Grant, above, permitting limited
+production use.
+
+License, whichever comes first, the Licensor hereby grants you rights under.
+
+Attribution:
+Any copies or derivative works of the Licensed Work must include an attribution to the original repository at github.com/arg0WAK/telegram-hooker.
+
+Contribute Project:
+To contribute to the development of the work, open a topic on github.com/telegram-hooker/issues to share your development process before pushing your forked project directly.

@@ -1,0 +1,64 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    if error
+      meta(http-equiv='refresh', content=`3;url=${action}`)
+      meta(name='theme-color', content='#DC2625')
+      meta(name='favicon', content='danger-favicon.ico')
+      link(rel='apple-touch-icon' sizes='180x180' href='danger-apple-touch-icon.png')
+      link(rel='icon' type='image/png' sizes='32x32' href='danger-favicon-32x32.png')
+      link(rel='icon' type='image/png' sizes='16x16' href='danger-favicon-16x16.png')
+    else 
+      meta(name='theme-color', content='#0188CD')
+      meta(name='favicon', content='ready-favicon.ico')
+      link(rel='apple-touch-icon' sizes='180x180' href='ready-apple-touch-icon.png')
+      link(rel='icon' type='image/png' sizes='32x32' href='ready-favicon-32x32.png')
+      link(rel='icon' type='image/png' sizes='16x16' href='ready-favicon-16x16.png')
+    
+
+    link(rel='stylesheet', href='webhook.css')
+    title= error ? 'Unauthorized' : 'Login'
+    - var bgClass = error ? 'bg-red-600' : 'bg-telegram-blue'
+    - var textClass = error ? 'text-danger' : 'text-telegram'
+  body(class=bgClass).h-dvh.flex.items-center.justify-center.content.center
+    .grid.grid-cols-1.gap-8.px-5
+      header.rounded-full.relative.text-center.mx-auto
+        img.text-center.mx-auto.scale-110.mix-blend-luminosity.opacity-75(src='telegram.gif', width='125', height='125')
+      main.container.mx-auto
+        .mx-auto.position-relative.text-start.text-white.p-8.border-2.rounded-full(class="bg-white/[.25]")
+          form#loginForm.mx-auto(
+                action=action,
+                method='POST',
+                enctype='application/x-www-form-urlencoded',
+                novalidate,
+                autocomplete='off',
+                name='loginForm'
+              )
+            .relative
+              input#password.rounded-full.text-sm.outline-0.pe-8.ps-1.w-full.bg-transparent(
+                class=borderClass,
+                class="placeholder:text-white/[.75]",
+                type='password',
+                name='password',
+                placeholder='YOUR_AUTH_TOKEN',
+                autocomplete='off',
+                autofocus='true',
+                onclick=error ? `location.href='${action}/install'` : 'this.focus()',
+                required='true'
+              )
+              button.btn.absolute(
+                type='submit',
+                class='top-1/2 -translate-y-1/2 end-0'
+              )
+                i.fad.fa-sign-out
+      footer.text-center.opacity-50.text-white.mb-0.text-sm
+        pre NGROK_URL:
+          = ' '
+          a#hookUrl.text-telegram(href=hookUrl, target='_blank')= hookUrl
+        pre.opacity-50.text-white.mb-0
+          span.text-white Powered by
+          = ' '
+          a.text-white(href='//github.com/arg0WAK', target='_blank') arg0WAK
+        pre.opacity-50.mt-0.mb-0.text-telegram.fs-12 v1.0.0

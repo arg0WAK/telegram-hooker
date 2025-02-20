@@ -1,0 +1,82 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    if results && results.some(result => result.status === false)
+      meta(name='theme-color', content='#DC2625')
+      meta(name='favicon', content='/assets/images/favicon/danger-favicon.ico')
+      link(rel='apple-touch-icon' sizes='180x180' href='danger-apple-touch-icon.png')
+      link(rel='icon' type='image/png' sizes='32x32' href='danger-favicon-32x32.png')
+      link(rel='icon' type='image/png' sizes='16x16' href='danger-favicon-16x16.png')
+    else 
+      meta(name='theme-color', content='#18A34A')
+      meta(name='favicon', content='success-favicon.ico')
+      link(rel='apple-touch-icon' sizes='180x180' href='success-apple-touch-icon.png')
+      link(rel='icon' type='image/png' sizes='32x32' href='success-favicon-32x32.png')
+      link(rel='icon' type='image/png' sizes='16x16' href='success-favicon-16x16.png')
+    
+    link(rel='stylesheet', href='webhook.css')
+    title= results && results.some(result => result.status === true) ? '🪝 Hooked!' : 'Failed!'
+    script.
+      var installRoute = '#{installRoute}';
+      async function uninstallHook(e) {
+        try {
+          const response = await fetch(installRoute + "/uninstall/" + e.name , {
+            method: 'DELETE',
+            headers: {
+              'Authorization': '#{env}',
+            },
+          });
+
+          console.log(response);
+
+          if (response.status !== 200) {
+            throw new Error('Failed to uninstall hook');
+          }
+
+          const parent = e.closest('pre');
+          parent.innerHTML = parent.innerHTML.replace('installed', 'uninstalled');
+          parent.classList.add('line-through');
+          const button = parent.querySelector('button');
+          const icon = parent.querySelector('i');
+          icon.classList.remove('fa-duotone', 'fa-regular', 'fa-plug-circle-xmark');
+          icon.classList.add('text-green-300', 'fa-solid', 'fa-check');
+          button.disabled = true;
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    - if (results && results.some(result => result.status === true)) {
+    - bgClass = 'bg-green-600'
+    - textClass = 'text-green-600'
+    - } else if (results && results.some(result => result.status === false)) {
+    - bgClass = 'bg-red-600'
+    - textClass = 'text-red-600'
+    - }
+  body(class=bgClass).h-dvh.flex.items-center.justify-center.content.center
+    .grid.grid-cols-1.gap-8.px-5
+      header.rounded-full.relative.text-center.mx-auto
+        img.text-center.mx-auto.scale-110.mix-blend-luminosity.opacity-75(src='telegram.gif', width='125', height='125')
+      main.container.mx-auto
+        .mx-auto.position-relative.text-start.text-white.p-8.bg-white.bg-opacity-25.border-2.rounded-full
+          if results && results.length
+            each result in results
+              pre.m-0.gap-x-4.flex.align-center.items-center.my-auto.justify-between(class=textClass)= result.message
+                if result.status
+                  button.btn.btn-unhook.my-0.p-0.rounded-5.position-relative(
+                    name=result.worker,
+                    onclick='uninstallHook(this)',
+                  )
+                    i.fa-duotone.fa-regular.fa-plug-circle-xmark
+                else
+      footer.text-center.opacity-50.text-white.mb-0.text-sm
+        pre NGROK_URL:
+          = ' '
+          a.text-telegram(href=`${hookUrl}`, target='_blank')= hookUrl
+        pre.opacity-50.text-white.m-0 #{env}
+        pre.opacity-50.text-white.mb-0
+          span.text-white Powered by
+          = ' '
+          a.text-white(href='//github.com/arg0WAK', target='_blank') arg0WAK
+        pre.opacity-50.mt-0.mb-0.text-telegram.fs-12 v1.0.0

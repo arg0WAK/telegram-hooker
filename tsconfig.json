@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "build/javascript/core/src",
+    "target": "ES2024",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "composite": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "sourceMap": false,
+    "removeComments": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*.ts", "test/core.test.ts"],
+  "exclude": ["node_modules", "packages/**/*", "examples/**/*", "dist", "build", "test"]
+}

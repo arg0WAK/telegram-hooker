@@ -1,0 +1,23 @@
+{
+  "name": "node-http",
+  "version": "1.0.0",
+  "description": "Simple node http examples for telegram hooker usage.",
+  "license": "BSL-1.1",
+  "author": "arg0WAK",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "tsx index.ts"
+  },
+  "dependencies": {
+    "@telegram-hooker/core": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "typescript": "^5.7.2",
+    "tsx": "^4.19.2",
+    "prettier": "^3.4.2"
+  }
+}

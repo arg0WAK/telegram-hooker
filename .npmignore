@@ -1,0 +1,17 @@
+/**/*.package-lock.json
+/**/*.tsconfig.tsbuildinfo
+/**/*.tsconfig.json
+/**/node_modules
+/**/logs
+/**/*.tgz
+/examples
+/build
+.eslintrc.js
+.eslintignore
+.eslint.config.js
+.prettierignore
+.prettierrc
+.npmignore
+.gitignore
+.gitattributes
+.git
