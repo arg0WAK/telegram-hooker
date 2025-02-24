@@ -1,7 +1,4 @@
-  <div align="center">
-      <img src="https://arg0wak.github.io/gist/images/telegram-hooker/telegram.gif" width="92px">
-  </div>
-  <h1 align="center">telegram-hooker</h1>
+  <h1 align="center">telegram-hooker/core</h1>
   <p align="center">
       Service designed to handle multiple Telegram webhooks.
   </p>
@@ -24,7 +21,7 @@
 
 ## ⚙️ Getting Started
 
-In this repo has a core HTTP structure that facilitates webhook management for Telegram bots. It is compatible with various frameworks (Express, Fastify, Koa, Hapi) and provides a set of tools you can use to manage and log your bots messages.
+In this package has a core HTTP structure that facilitates webhook management for Telegram bots. It is compatible with various frameworks (Express, Fastify, Koa, Hapi) and provides a set of tools you can use to manage and log your bots messages.
 
 **You can manage all your workers in a single group, or each worker in their own private chat window.** If you planing to manage in a group, your main worker should have the permission to read the messages in the group **considering that all messages will be logged simultaneously on your server.**
 
@@ -47,30 +44,6 @@ This package is tested ESM only. In Node.js (version 18+), install with npm acco
 
 ```bash
 npm i @telegram-hooker/core
-```
-
-**Express**
-
-```bash
-npm i @telegram-hooker/express
-```
-
-**Fastify**
-
-```bash
-npm i @telegram-hooker/fastify
-```
-
-**Hapi**
-
-```bash
-npm i @telegram-hooker/hapi
-```
-
-**Koa**
-
-```bash
-npm i @telegram-hooker/koa
 ```
 
 ### Configure the Telegram Workers
@@ -140,6 +113,12 @@ Response similar to the following response will be returned in result to the req
     }
   ]
 }
+```
+
+### Import module<br/>
+
+```javascript
+import TelegramHookerCore, { createHook } from '@telegram-hooker/core'
 ```
 
 ### Configure the createHook function<br/>
@@ -247,7 +226,7 @@ if (!res.headersSent && !req.handled) {
 Install your hooks by accessing the url address you defined in installRoute via Browser. Bearer token you was defined before is required.
 
 ```http
-GET https://<NGROK_OR_PROXY_URL>/webhook/specified-your-route
+GET https://<NGROK_OR_PROXY_URL>/webhook/specified-your-route/install
 ```
 
 <img src="https://arg0wak.github.io/gist/images/telegram-hooker/zzv98-mc0dl.gif" width="100%" alt="Telegram Hooker" />
