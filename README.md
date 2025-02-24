@@ -1,4 +1,7 @@
-  <h1 align="center">telegram-hooker/core</h1>
+  <div align="center">
+      <img src="https://arg0wak.github.io/gist/images/telegram-hooker/telegram.gif" width="92px">
+  </div>
+  <h1 align="center">telegram-hooker</h1>
   <p align="center">
       Service designed to handle multiple Telegram webhooks.
   </p>
