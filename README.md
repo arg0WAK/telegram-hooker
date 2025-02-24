@@ -40,10 +40,26 @@ In this package has a core HTTP structure that facilitates webhook management fo
 
 This package is tested ESM only. In Node.js (version 18+), install with npm according to your framework:
 
-**Core**
+**Pick a framework**
 
 ```bash
 npm i @telegram-hooker/core
+```
+
+```bash
+npm i @telegram-hooker/express
+```
+
+```bash
+npm i @telegram-hooker/fastify
+```
+
+```bash
+npm i @telegram-hooker/hapi
+```
+
+```bash
+npm i @telegram-hooker/koa
 ```
 
 ### Configure the Telegram Workers
@@ -117,9 +133,7 @@ Response similar to the following response will be returned in result to the req
 
 ### Import module<br/>
 
-```javascript
-import TelegramHookerCore, { createHook } from '@telegram-hooker/core'
-```
+[Check Import Details](https://arg0wak.github.io/telegram-hooker/documentation/index.html#types-using-with-typescript)
 
 ### Configure the createHook function<br/>
 
